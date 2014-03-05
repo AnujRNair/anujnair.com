@@ -1,0 +1,51 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'portfolioadd')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Portfolio Management - Add Portfolio')); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+
+    <div id="mainContent">
+        <form method="post" action="<?= $this->route('admin', 'portfolio', 'add', array()); ?>">
+            <table class="dataTableEdit">
+                <tr>
+                    <td>Site Name : </td>
+                    <td><input type="text" name="siteName" id="siteName" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Abstract : </td>
+                    <td><textarea name="abstract" id="abstract"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Main Contents : </td>
+                    <td><textarea name="contents" id="contents"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Image : </td>
+                    <td><input type="text" name="image" id="image" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Website Link : </td>
+                    <td><input type="text" name="link" id="link" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Featured : </td>
+                    <td><input type="checkbox" name="featured" id="featured" /></td>
+                </tr>
+                <tr>
+                    <td>Deleted : </td>
+                    <td><input type="checkbox" name="deleted" id="deleted" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Add Site" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,26 @@
+<div class="row-fluid">
+    <div class="span11 <?= ($this->comment->user ? 'offset1' : ''); ?>">
+        <article class="main-content-body-left comment-container <?= ($this->comment->user ? 'comment-admin' :
+            'comment-user'); ?>">
+            <h5>
+                <div class="row-fluid">
+                    <div class="span8">
+                        <? if ($this->comment->user != false) {
+                            echo $this->comment->user->firstname . ' ' . $this->comment->user->lastname;
+                        } elseif ($this->comment->randomPoster != false) {
+                            echo $this->comment->randomPoster->name;
+                        } ?>
+                    </div>
+                    <div class="span4 comment-date">
+                        <?= date('jS F Y H:i:s', strtotime($this->comment->creationDate)); ?>
+                    </div>
+                </div>
+            </h5>
+            <div class="row-fluid comment-text">
+                <div class="span12">
+                    <?= $this->parsePost($this->comment->comment); ?>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>

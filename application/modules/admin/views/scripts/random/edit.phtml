@@ -1,0 +1,53 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'random')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Random Poster Management - Edit Random Poster ID ' . $this->randomPoster->randomPosterId)); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+    <div id="mainContent">
+        <form method="post" action="<?= $this->route('admin', 'random', 'edit', array('id' => $this->randomPoster->randomPosterId)); ?>">
+            <table class="dataTableEdit">
+                <tr>
+                    <td>Poster ID : </td>
+                    <td><?= $this->randomPoster->randomPosterId; ?></td>
+                </tr>
+                <tr>
+                    <td>Name : </td>
+                    <td><input type="text" name="name" id="name" value="<?= $this->randomPoster->name; ?>" /></td>
+                </tr>
+                <tr>
+                    <td>Email : </td>
+                    <td><input type="text" name="email" id="email" value="<?= $this->randomPoster->email; ?>" /></td>
+                </tr>
+                <tr>
+                    <td>Website : </td>
+                    <td><input type="text" name="website" id="website" value="<?= $this->randomPoster->website; ?>" /></td>
+                </tr>
+                <tr>
+                    <td>IP : </td>
+                    <td><input type="text" name="ip" id="ip" value="<?= long2ip($this->randomPoster->ip); ?>" /></td>
+                </tr>
+                <tr>
+                    <td>User Agent : </td>
+                    <td><input type="text" name="useragent" id="useragent" value="<?= $this->randomPoster->useragent; ?>" /></td>
+                </tr>
+                <tr>
+                    <td>Creation Date : </td>
+                    <td><input type="text" name="creationDate" id="creationDate" value="<?= $this->randomPoster->creationDate; ?>" /></td>
+                </tr>
+                <tr>
+                    <td>Deleted : </td>
+                    <td><input type="checkbox" name="deleted" id="deleted" <?= ($this->randomPoster->deleted == 1 ? 'checked="checked"' : ''); ?> /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Update Random Poster" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

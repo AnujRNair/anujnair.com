@@ -1,0 +1,75 @@
+<div id="main-content-header">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+        </div>
+        <div class="span10">
+            <div class="slogan">
+                <h2>Creative, Modern, Professional Web Development</h2>
+                <div class="subh2">
+                    For the last <?= date('Y') - 2002; ?> years, I have been creating innovative websites to capture attention
+                    and inspire the mind, balancing user experience with an attractive website interface. By the use of AJAX
+                    and CSS, websites become more interactive, and with Search Engine Optimization, they are easily found through
+                    Google, Yahoo and Bing.
+                </div>
+            </div>
+            <div class="slogan">
+                <h2>Custom Built to the Highest of Standards</h2>
+                <div class="subh2">
+                    This whole website is based on a custom content management system built by myself from scratch. It has been
+                    constructed on top of the Zend Framework in PHP, and uses the power of the jQuery library in JavaScript.
+                    This demonstrates dedication, personalization and skill, and is reflected in all of the work I produce.
+                </div>
+            </div>
+            <div class="slogan">
+                <h2>Programming is a Passion</h2>
+                <div class="subh2">
+                    ... and I keep up to date. I'm always looking to further improve myself, so I'm always trying new things.
+                    That means you'll probably find lots of hints and tips here for many different languages, as well as anything
+                    that I find relatively interesting!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-body">
+    <div class="row-fluid">
+        <div class="span8">
+            <section>
+                <?= $this->partLoop('default', 'portfolio', 'summary', 'site', $this->featuredSites); ?>
+            </section>
+        </div>
+        <div class="span4">
+            <section class="main-content-body-right">
+                <h3>Latest Blog Posts</h3>
+                <?= $this->partLoop('default', 'blog', 'latestBlog', 'blog', $this->latestBlogs); ?>
+            </section>
+            <section class="main-content-body-right">
+                <h3>My Passions</h3>
+                <div class="row-fluid row-about">
+                    <div class="span6">PHP</div>
+                    <div class="span6">SQL</div>
+                </div>
+                <div class="row-fluid row-about">
+                    <div class="span6">JavaScript</div>
+                    <div class="span6">CSS</div>
+                </div>
+                <div class="row-fluid row-about">
+                    <div class="span6">Zend Framework</div>
+                    <div class="span6">SEO</div>
+                </div>
+                <div class="row-fluid row-about">
+                    <div class="span12">Responsive Designs &amp; Layouts</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-footer">
+
+</div>

@@ -1,0 +1,136 @@
+<div id="main-content-header" xmlns="http://www.w3.org/1999/html">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+        </div>
+        <div class="span10">
+            <h2>Contact Anuj Nair</h2>
+
+            <div class="subh2">
+                If you would like to contact me, whether it be with a development question,
+                or to let me know of something interesting you've found and think I might enjoy,
+                please use the contact form below. I always read all comments sent my way.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-body">
+
+    <?= $this->part('default', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'    => $this->errors,
+        'warnings'  => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+
+    <div class="row-fluid">
+        <div class="span8">
+            <section class="main-content-body-left">
+                <h3>Contact Anuj Nair</h3>
+
+                <p>
+                    If you would like to contact me, please do so by using the form below, and I
+                    will get back to you as soon as possible. All fields are required and will be
+                    kept confidential.
+                </p>
+
+                <form id="contactForm" method="post" action="<?= $this->route('contact', 'index'); ?>">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="row-fluid">
+                                <div class="span9">
+                                    <div class="row-fluid">
+                                        <div class="span4">
+                                            <label class="contactLabel" for="name">Your Name: </label>
+                                        </div>
+                                        <div class="span8">
+                                            <input type="text" class="contactInput" id="name" name="name"
+                                                   placeholder="Anuj Nair" value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span4">
+                                            <label class="contactLabel" for="email">Your Email: </label>
+                                        </div>
+                                        <div class="span8">
+                                            <input type="text" class="contactInput" id="email" name="email"
+                                                   placeholder="my.email@domain.com" value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="span4">
+                                            <label class="contactLabel" for="captcha">Captcha: </label>
+                                        </div>
+                                        <div class="span8">
+                                            <input type="text" class="contactInput" id="captcha" name="captcha"
+                                                   placeholder="A1B2" value=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span3">
+                                    <div id="captchaCont">
+                                        <img src="<?= $this->captcha; ?>"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span3">
+                                    <label class="contactLabel" for="message">Your Message: </label>
+                                </div>
+                                <div class="span9">
+                                    <textarea name="message" id="message" class="contactTextarea"></textarea>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="offset3 span9">
+                                    <button type="submit" class="button sendButton">
+                                        <span class="icon-white icon-ok"></span>
+                                        Send
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <div class="span4">
+            <section class="main-content-body-right">
+                <h3>Other Links</h3>
+
+                <div class="row-fluid row-other">
+                    <div class="span12">
+                        <a href="<?= $this->route('portfolio', 'index'); ?>">
+                            View Portfolio
+                            <div class="row-other-desc">See the work I have already completed</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row-fluid row-other">
+                    <div class="span12">
+                        <a href="<?= $this->route('blog', 'index'); ?>">
+                            View Blog
+                            <div class="row-other-desc">Topics on my mind and problems I've solved</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row-fluid row-other">
+                    <div class="span12">
+                        <a href="<?= $this->route('about', 'index'); ?>">
+                            About Me
+                            <div class="row-other-desc">Learn who is behind the site</div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-footer">
+
+</div>

@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+/* ---------- Main Content Body ---------- */
+
+.pic {
+    background: #FFF;
+    height: 20px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.main-content-body-left {
+    background: url("/img/patterns/swirl.png") no-repeat scroll right top #ffffff;
+    border-radius: 7px;
+    padding: 0 10px 10px;
+}
+
+.main-content-body-right {
+    background: url("/img/patterns/swirl2.png") no-repeat scroll right top #ffffff;
+    border-radius: 7px;
+    padding: 0 10px 10px;
+}
+
+#contactForm {
+    margin: 20px 0;
+}
+
+.contactLabel {
+    float: right;
+    font-weight: bold;
+    line-height: 28px;
+}
+
+input.contactInput {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+textarea.contactTextarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 95%;
+    margin-bottom: 0;
+}
+
+.sendButton {
+    margin-top: 10px;
+}
+
+/* ---------- Other Links ----------- */
+
+.row-other {
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.row-other:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.row-other > div {
+    background: url(/img/icons/user.png) no-repeat 1px 6px;
+    padding: 3px 0 0 30px;
+}
+
+.row-other a {
+    color: #241648;
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.row-other a:hover {
+    color: #36226d;
+    padding-left: 2px;
+}
+
+.row-other-desc {
+    font-weight: normal;
+    font-size: 12px;
+    text-align: justify;
+}
+
+/*
+    Tablet portrait and smaller
+*/
+@media (max-width: 768px) {
+    .contactLabel {
+        float: none;
+    }
+
+    textarea.contactTextarea {
+        width: 100%;
+    }
+
+    #captchaCont {
+        text-align: center;
+    }
+}

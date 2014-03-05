@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+/* ---------- Main Content Body ---------- */
+
+.pic {
+    background: #FFF;
+    height: 20px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.main-content-body-left {
+    background: url("/img/patterns/swirl.png") no-repeat scroll right top #FFFFFF;
+    border-radius: 7px;
+    padding: 0 10px 10px;
+}
+
+.main-content-body-right {
+    background: url("/img/patterns/swirl2.png") no-repeat scroll right top #FFFFFF;
+    border-radius: 7px;
+    padding: 0 10px 10px;
+}
+
+/* Portfolio */
+
+.row-portfolio {
+    padding-bottom: 10px;
+}
+
+.row-portfolio-image {
+    text-align: center;
+}
+
+.row-portfolio-text {
+    text-align: justify;
+}
+
+.row-portfolio-tags > div {
+    background: url("/img/icons/tag.png") no-repeat scroll 0 4px transparent;
+    border-top: 1px solid #CCCCCC;
+    margin-top: 10px;
+    padding: 6px 0 0 30px;
+}
+
+.row-portfolio-tags a {
+    text-decoration: none;
+    color: #999;
+    margin-right: 8px;
+    font-size: 11px;
+}
+
+.row-portfolio-tags a:hover {
+    color: #36226D;
+}
+
+/* Latest Blog */
+
+.row-latest-blog {
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.row-latest-blog:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.row-latest-blog > div {
+    background: url(/img/icons/chat.png) no-repeat 1px 6px;
+    padding: 3px 0 0 30px;
+}
+
+.row-latest-blog a {
+    color: #241648;
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.row-latest-blog a:hover {
+    color: #36226D;
+    padding-left: 2px;
+}
+
+.row-latest-blog-posted {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/*
+    Tablet portrait and smaller
+    Center portfolio images
+*/
+@media (max-width: 768px) {
+    .row-portfolio-image {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}
+
+/*
+    Landscape phones and down
+*/
+@media (max-width: 360px) {
+    a.morebutton {
+        float: none;
+        margin: 5px auto 3px;
+    }
+}

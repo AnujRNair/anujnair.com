@@ -1,0 +1,58 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'portfolioedit')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Portfolio Management')); ?>
+
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+
+    <div id="mainContent">
+        <table class="dataTableDisplay">
+            <thead>
+                <tr>
+                    <td>Site ID</td>
+                    <td>Name</td>
+                    <td>Contents</td>
+                    <td>Image</td>
+                    <td>Link</td>
+                    <td>Last Updated</td>
+                    <td>Tags</td>
+                    <td>Featured</td>
+                    <td>Active</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php for ($i = 0; $i < count($this->sites); $i++) { ?>
+                    <tr>
+                        <td><?= $this->sites[$i]->siteId; ?></td>
+                        <td><?= $this->sites[$i]->siteName; ?></td>
+                        <td><?= substr($this->sites[$i]->contents, 0, 90); ?> ...</td>
+                        <td><?= $this->sites[$i]->image; ?></td>
+                        <td><a href="<?= $this->sites[$i]->link; ?>"><?= $this->sites[$i]->link; ?></a></td>
+                        <td><?= $this->sites[$i]->updatedDate; ?></td>
+                        <td><?= count($this->sites[$i]->tags); ?></td>
+                        <td><img src="/img/icons/<?= ($this->sites[$i]->featured == 0 ? 'cross' : 'tick-straight'); ?>.png" /></td>
+                        <td><img src="/img/icons/<?= ($this->sites[$i]->deleted == 1 ? 'cross' : 'tick-straight'); ?>.png" /></td>
+                        <td>
+                            <a title="Edit Site" href="<?= $this->route('admin', 'portfolio', 'edit', array('id' => $this->sites[$i]->siteId)); ?>">
+                                <img src="/img/icons/vcard_edit.png" />
+                            </a>
+                        </td>
+                        <td>
+                            <a title="<?= ($this->sites[$i]->deleted == 1 ? "ReAdd" : "Delete"); ?> Site" href="<?= $this->route('admin', 'portfolio', 'changestate', array('id' => $this->sites[$i]->siteId, 'method' => ($this->sites[$i]->deleted == 1 ? "add" : "delete"))); ?>">
+                                <img src="/img/icons/vcard_<?= ($this->sites[$i]->deleted == 1 ? "add" : "delete"); ?>.png" />
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+
+</div>

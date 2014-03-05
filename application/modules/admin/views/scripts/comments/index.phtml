@@ -1,0 +1,79 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'blogedit')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Comment Management - Blog ID <a href="' . $this->route('default', 'blog', 'article', array('id' => $this->blog->blogId)) . '">' . $this->blog->blogId . '</a>')); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+    <div id="mainContent">
+        <table class="dataTableDisplay">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>User/Poster</td>
+                    <td>Comment</td>
+                    <td>Last Updated</td>
+                    <td>Active</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (count($this->comments) > 0) {
+                    for ($i = 0; $i < count($this->comments); $i++) { ?>
+                        <tr>
+                            <td><?= $this->comments[$i]->commentId; ?></td>
+                            <td>
+                                <?php if(!is_null($this->comments[$i]->userId)) { ?>
+                                    <a class="userLink realUser" href="<?= $this->route('admin', 'users', 'edit', array('id' => $this->comments[$i]->userId)); ?>">
+                                        <?= $this->comments[$i]->user->firstname . ' ' . $this->comments[$i]->user->lastname; ?>
+                                    </a>
+                                <?php } else { ?>
+                                    <a class="userLink" href="<?= $this->route('admin', 'random', 'edit', array('id' => $this->comments[$i]->randomPosterId)); ?>">
+                                        <?= $this->comments[$i]->randomPoster->name; ?>
+                                    </a>
+                                <?php } ?>
+                            </td>
+                            <td><?= substr($this->comments[$i]->comment, 0, 230) . (strlen($this->comments[$i]->comment) > 230 ? '...' : ''); ?></td>
+                            <td><?= $this->comments[$i]->updatedDate; ?></td>
+                            <td><img src="/img/icons/<?= ($this->comments[$i]->deleted == 1 ? 'cross' : 'tick-straight'); ?>.png" /></td>
+                            <td>
+                                <a title="Edit Comment" href="<?= $this->route('admin', 'comments', 'edit', array('commentId' => $this->comments[$i]->commentId, 'from' => 'index-id-' . $this->blog->blogId)); ?>">
+                                    <img src="/img/icons/comment_edit.png" />
+                                </a>
+                            </td>
+                            <td>
+                                <a title="<?= ($this->comments[$i]->deleted == 1 ? "Add" : "Delete"); ?> Comment" href="<?= $this->route('admin', 'comments', 'changestate', array('commentId' => $this->comments[$i]->commentId, 'blogId' => $this->blog->blogId, 'method' => ($this->comments[$i]->deleted == 1 ? "add" : "delete"))); ?>">
+                                    <img src="/img/icons/comment_<?= ($this->comments[$i]->deleted == 1 ? "add" : "delete"); ?>.png" />
+                                </a>
+                            </td>
+                        </tr>
+                    <?php }
+                } else { ?>
+                    <tr class="odd">
+                        <td colspan="7">No comments currently exist.</td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="7">
+                        <form method="post" action="<?= $this->route('admin', 'comments', 'index', array('id' => $this->blog->blogId)); ?>">
+                            <textarea name="comment" id="comment"></textarea>
+                            <div class="comment-label">Posting as:</div>
+                            <div class="comment-text"><?= $this->userInfo->firstname . ' ' . $this->userInfo->lastname; ?></div>
+                            <div class="comment-label">Posting on blog:</div>
+                            <div class="comment-text"><?= $this->blog->title; ?></div>
+                            <div class="comment-label">Posting date:</div>
+                            <div class="comment-text"><?= date('Y-m-d H:i:s'); ?></div>
+                            <input type="submit" value="Post Comment" />
+                        </form>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

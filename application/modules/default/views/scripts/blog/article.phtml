@@ -1,0 +1,104 @@
+<div id="main-content-header">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+        </div>
+        <div class="span10">
+            <h2>Welcome to Anuj Nair's Blog</h2>
+            <div class="subh2">
+                My blog is a place for me to share my findings, leave my thoughts, and interact wth you.
+                Anything which I think others could benefit from knowing will be posted here and will be
+                open for discussion - If you need to know more about a topic I'm talking about, or if you
+                know of a better way of doing something, join the discussion!
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-body">
+    <div class="row-fluid">
+        <div class="span8">
+            <section>
+                <?= $this->part('default', 'blog', 'post', array('blog' => $this->blog, 'truncate' => false)); ?>
+            </section>
+            <section>
+                <?= $this->partLoop('default', 'blog', 'comment', 'comment', $this->comments); ?>
+
+                <? if ($this->blog->isCommentDisabled == 0) { ?>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <article class="main-content-body-left comment-container">
+                                <form action="<?= $this->url(array(
+                                    'id'    => $this->blog->blogId,
+                                    'title' => $this->urltitle($this->blog->title)
+                                ), 'blogArticle', true); ?>" method="post" class="form-horizontal">
+                                    <h5>
+                                        <div class="row-fluid">
+                                            <div class="span12">
+                                                Join the Discussion!
+                                            </div>
+                                        </div>
+                                    </h5>
+                                    <div class="control-group">
+                                        <label class="control-label" for="name">Name : </label>
+                                        <div class="controls">
+                                            <input type="text" class="input-xlarge" id="name" name="name"
+                                                   placeholder="Anuj Nair" />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="email">Email (hidden) : </label>
+                                        <div class="controls">
+                                            <input type="text" class="input-xlarge" id="email" name="email"
+                                                   placeholder="example@domain.com" />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="website">Website (optional) : </label>
+                                        <div class="controls">
+                                            <input type="text" class="input-xlarge" id="website" name="website"
+                                                   placeholder="http://anujnair.com" />
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="comment">Comment : </label>
+                                        <div class="controls">
+                                            <textarea id="comment" class="input-xlarge" name="comment" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input type="hidden" id="blogId" name="blogId" value="<?= $this->blog->blogId; ?>" />
+                                            <input type="hidden" id="secureForm" name="secureForm" value="<?= $this->secureForm; ?>" />
+                                            <input type="submit" value="Submit" class="button" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </article>
+                        </div>
+                    </div>
+                <? } else { ?>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <article class="main-content-body-left comment-container comment-closed">
+                                Comments have unfortunately been closed for this post
+                            </article>
+                        </div>
+                    </div>
+                <? } ?>
+
+            </section>
+        </div>
+        <div class="span4">
+            <?= $this->part('default', 'blog', 'archive', array('archive' => $this->archive)); ?>
+            <?= $this->part('default', 'blog', 'tags', array('tags' => $this->tags)); ?>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-footer">
+
+</div>

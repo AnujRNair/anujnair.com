@@ -1,0 +1,51 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'linksedit')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Link Management')); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+    <div id="mainContent">
+        <table class="dataTableDisplay">
+            <thead>
+                <tr>
+                    <td>Link ID</td>
+                    <td>Title</td>
+                    <td>Link</td>
+                    <td>Description</td>
+                    <td>Last Updated</td>
+                    <td>Featured</td>
+                    <td>Active</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php for ($i = 0; $i < count($this->links); $i++) { ?>
+                    <tr>
+                        <td><?= $this->links[$i]->linkId; ?></td>
+                        <td><?= $this->links[$i]->title; ?></td>
+                        <td><a href="<?= $this->links[$i]->link; ?>"><?= $this->links[$i]->link; ?></a></td>
+                        <td><?= substr($this->links[$i]->description, 0, 90); ?> ...</td>
+                        <td><?= $this->links[$i]->updatedDate; ?></td>
+                        <td><img src="/img/icons/<?= ($this->links[$i]->featured == 1 ? 'tick-straight' : 'cross'); ?>.png" /></td>
+                        <td><img src="/img/icons/<?= ($this->links[$i]->deleted == 1 ? 'cross' : 'tick-straight'); ?>.png" /></td>
+                        <td>
+                            <a title="Edit Link" href="<?= $this->route('admin', 'links', 'edit', array('id' => $this->links[$i]->linkId)); ?>">
+                                <img src="/img/icons/link_edit.png" />
+                            </a>
+                        </td>
+                        <td>
+                            <a title="<?= ($this->links[$i]->deleted == 1 ? "ReAdd" : "Delete"); ?> Link" href="<?= $this->route('admin', 'links', 'changestate', array('id' => $this->links[$i]->linkId, 'method' => ($this->links[$i]->deleted == 1 ? "add" : "delete"))); ?>">
+                                <img src="/img/icons/link_<?= ($this->links[$i]->deleted == 1 ? "add" : "delete"); ?>.png" />
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</div>

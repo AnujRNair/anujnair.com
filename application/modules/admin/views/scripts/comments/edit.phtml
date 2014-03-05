@@ -1,0 +1,53 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'blogedit')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Comment Management - Comment ID ' . $this->comment->commentId)); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'    => $this->errors,
+        'warnings'  => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+    <div id="mainContent">
+        <form method="post" action="<?= $this->route('admin', 'comments', 'edit', array('blogId' => $this->comment->blogId, 'commentId' => $this->comment->commentId)); ?>">
+            <table class="dataTableEdit">
+                <tr>
+                    <td>Comment ID : </td>
+                    <td id="commentId"><?= $this->comment->commentId; ?></td>
+                </tr>
+                <tr>
+                    <td><label for="blogId">Blog ID : </label></td>
+                    <td id="blogId"><?= $this->comment->blogId; ?></td>
+                </tr>
+                <tr>
+                    <td><label for="userId">User ID : </label></td>
+                    <td><input type="text" name="userId" id="userId" value="<?= $this->comment->userId; ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="posterId">Poster ID : </label></td>
+                    <td><input type="text" name="posterId" id="posterId" value="<?= $this->comment->randomPosterId; ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="comment">Comment : </label></td>
+                    <td><textarea name="comment" id="comment"><?= $this->comment->comment; ?></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="creationDate">Creation Date : </label></td>
+                    <td><input type="text" name="creationDate" id="creationDate" value="<?= $this->comment->creationDate; ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="updatedDate">Updated Date : </label></td>
+                    <td><?= $this->comment->updatedDate; ?></td>
+                </tr>
+                <tr>
+                    <td><label for="deleted">Deleted : </label></td>
+                    <td><input type="checkbox" name="deleted" id="deleted" <?= ($this->comment->deleted == 1 ? 'checked="checked"' : ''); ?> /></td>
+                </tr>
+                <tr>
+                    <td><input type="hidden" name="from" value="<?= $this->from; ?>" /></td>
+                    <td><input type="submit" value="Update Comment" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

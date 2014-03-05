@@ -1,0 +1,67 @@
+<nav>
+    <h1>Admin Panel</h1>
+    <dl>
+        <dt>Main</dt>
+        <dd>
+            <a <?php if ($this->active == 'home') { echo 'class=\'active\''; } ?> href="<?= $this->route('admin', 'index', 'index'); ?>">
+                Admin Home
+            </a>
+        </dd>
+        <dd><a href="<?= $this->route('default', 'index', 'index'); ?>">Site Home</a></dd>
+
+        <dt>User Management</dt>
+        <dd>
+            <a <?php if ($this->active == 'users') { echo 'class=\'active\''; } ?> href="<?= $this->route('admin', 'users', 'index'); ?>">
+                Users
+            </a>
+        </dd>
+        <dd>
+            <a <?php if ($this->active == 'random') { echo 'class=\'active\''; } ?> href="<?= $this->route('admin', 'random', 'index'); ?>">
+                Random Posters
+            </a>
+        </dd>
+
+        <dt><a href="<?= $this->route('portfolio', 'index'); ?>">Portfolio</a></dt>
+        <dd>
+            <a <?php if ($this->active == 'portfolioadd') { echo 'class=\'active\''; } ?> href="<?= $this->route('admin', 'portfolio', 'add'); ?>">
+                Add New Portfolio
+            </a>
+        </dd>
+        <dd>
+            <a <?php if ($this->active == 'portfolioedit') { echo 'class=\'active\''; } ?> href="<?= $this->route('admin', 'portfolio', 'index'); ?>">
+                Edit Existing Portfolio
+            </a>
+        </dd>
+
+        <dt><a href="<?= $this->route('blog', 'index'); ?>">Blog</a></dt>
+        <dd>
+            <a <?php if ($this->active == 'blogadd') { echo 'class=\'active\''; } ?> href="<?= $this->route('admin', 'blog', 'add'); ?>">
+                Write New Blog Entry
+            </a>
+        </dd>
+        <dd>
+            <a <?php if ($this->active == 'blogedit') { echo 'class=\'active\''; } ?> href="<?= $this->route('admin', 'blog', 'index'); ?>">
+                Manage Existing Entries
+            </a>
+        </dd>
+
+        <!--<dt>Comments</dt>
+        <dd>
+            <a <?php if ($this->active == 'comments') { echo 'class=\'active\''; } ?> href="<?= $this->route('admin', 'comments', 'index'); ?>">
+                Add Admin or Edit Existing
+            </a>
+        </dd>-->
+
+        <dt><a href="<?= $this->route('links', 'index'); ?>">Links</a></dt>
+        <dd>
+            <a <?php if ($this->active == 'linksadd') { echo 'class=\'active\''; } ?> href="<?= $this->route('admin', 'links', 'add'); ?>">
+                Add New Link
+            </a>
+        </dd>
+        <dd>
+            <a <?php if ($this->active == 'linksedit') { echo 'class=\'active\''; } ?> href="<?= $this->route('admin', 'links', 'index'); ?>">
+                Edit Existing Links
+            </a>
+        </dd>
+    </dl>
+</nav>

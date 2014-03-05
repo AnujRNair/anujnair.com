@@ -1,0 +1,62 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'blogedit')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Blog Management')); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+
+    <div id="mainContent">
+        <table class="dataTableDisplay">
+            <thead>
+                <tr>
+                    <td>Blog ID</td>
+                    <td>Title &amp; Sub Title</td>
+                    <td>Contents</td>
+                    <td>Last Updated</td>
+                    <td>Tags</td>
+                    <td>Comments</td>
+                    <td>Active</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <? for ($i = 0; $i < count($this->blogs); $i++) { ?>
+                    <tr>
+                        <td><?= $this->blogs[$i]->blogId; ?></td>
+                        <td>
+                            <a href="<?= $this->route('default', 'blog', 'article', array('id' => $this->blogs[$i]->blogId)); ?>"><?= $this->blogs[$i]->title; ?></a>
+                            <br /><?= $this->blogs[$i]->subtitle; ?>
+                        </td>
+                        <td><?= substr($this->blogs[$i]->contents, 0, 80); ?> ...</td>
+                        <td><?= $this->blogs[$i]->updatedDate; ?></td>
+                        <td><?= count($this->blogs[$i]->tags); ?></td>
+                        <td><img src="/img/icons/<?= ($this->blogs[$i]->deleted == 1 ? 'cross' : 'tick-straight'); ?>.png" /></td>
+                        <td><img src="/img/icons/<?= ($this->blogs[$i]->isCommentDisabled == 1 ? 'cross' : 'tick-straight'); ?>.png" /></td>
+                        <td>
+                            <a title="Manage Comments" href="<?= $this->route('admin', 'comments', 'index', array('id' => $this->blogs[$i]->blogId)); ?>">
+                                <img src="/img/icons/comments.png" />
+                            </a>
+                        </td>
+                        <td>
+                            <a title="Edit Blog" href="<?= $this->route('admin', 'blog', 'edit', array('id' => $this->blogs[$i]->blogId)); ?>">
+                                <img src="/img/icons/vcard_edit.png" />
+                            </a>
+                        </td>
+                        <td>
+                            <a title="<?= ($this->blogs[$i]->deleted == 1 ? "ReAdd" : "Delete"); ?> Blog" href="<?= $this->route('admin', 'blog', 'changestate', array('id' => $this->blogs[$i]->blogId, 'method' => ($this->blogs[$i]->deleted == 1 ? "add" : "delete"))); ?>">
+                                <img src="/img/icons/vcard_<?= ($this->blogs[$i]->deleted == 1 ? "add" : "delete"); ?>.png" />
+                            </a>
+                        </td>
+                    </tr>
+                <? } ?>
+            </tbody>
+        </table>
+    </div>
+
+</div>

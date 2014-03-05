@@ -1,0 +1,49 @@
+<? if ($this->successes) { ?>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="success">
+                <ul>
+                    <? foreach($this->successes as $success) { ?>
+                        <li><?= $success; ?></li>
+                    <? } ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+<? } elseif ($this->errors) { ?>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="error">
+                <ul>
+                    <? foreach($this->errors as $error) { ?>
+                        <li><?= $error; ?></li>
+                    <? } ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+<? } elseif ($this->warnings) { ?>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="error">
+                <ul>
+                    <? foreach($this->warnings as $warning) { ?>
+                        <li><?= $warning; ?></li>
+                    <? } ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+<? } elseif ($this->infos) { ?>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="error">
+                <ul>
+                    <? foreach($this->infos as $info) { ?>
+                        <li><?= $info; ?></li>
+                    <? } ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+<? } ?>

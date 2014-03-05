@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+/* ---------- Comments Main Table ---------- */
+
+/* ---------- Add a Comment ---------- */
+
+#mainContent tfoot {
+    text-align: left;
+}
+
+#mainContent tfoot td {
+    padding: 10px 0 0 0;
+}
+
+#mainContent tfoot textarea {
+    width: 500px;
+    float: left;
+}
+
+#mainContent tfoot .comment-label {
+    float: left;
+    padding: 3px 0 7px 10px;
+    width: 110px;
+}
+
+#mainContent tfoot .comment-text {
+    padding: 3px 0 7px 10px;
+    font-weight: bold;
+}
+
+#mainContent tfoot input[type="submit"] {
+    margin: 3px 0 5px 8px;
+}

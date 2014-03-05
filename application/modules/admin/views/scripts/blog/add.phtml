@@ -1,0 +1,43 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'blogadd')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Blog Management - Add Blog Entry')); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+
+    <div id="mainContent">
+        <form method="post" action="<?= $this->route('admin', 'blog', 'add', array()); ?>">
+            <table class="dataTableEdit">
+                <tr>
+                    <td>Title : </td>
+                    <td><input type="text" name="blogTitle" id="blogTitle" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Sub Title : </td>
+                    <td><textarea name="blogSubTitle" id="blogSubTitle"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Main Contents : </td>
+                    <td><textarea name="contents" id="contents"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Disable Comments : </td>
+                    <td><input type="checkbox" name="disableComments" id="disableComments" /></td>
+                </tr>
+                <tr>
+                    <td>Deleted : </td>
+                    <td><input type="checkbox" name="deleted" id="deleted" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Add Blog" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</div>

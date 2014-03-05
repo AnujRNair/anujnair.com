@@ -1,0 +1,35 @@
+<div id="login">
+    <div id="login-head">
+        Please login to continue
+    </div>
+    <div id="login-cont">
+        <div id="login-top">
+            <img src="/img/logo.png" alt="Anuj Nair - Website Designer and Developer" />
+            <h1>Admin Panel</h1>
+        </div>
+        <div id="login-bottom">
+            <?= $this->part('admin', 'index', 'messages', array(
+                'successes' => $this->successes,
+                'errors'     => $this->errors,
+                'warnings'     => $this->warnings,
+                'infos'     => $this->infos
+            )); ?>
+            <form action="/admin/index/login" method="post">
+                <table class="loginTable">
+                    <tr>
+                        <td class="lc"><label for="username">Username:</label></td>
+                        <td class="rc"><input type="text" id="username" name="username" /></td>
+                    </tr>
+                    <tr>
+                        <td class="lc"><label for="username">Password:</label></td>
+                        <td class="rc"><input type="password" id="password" name="password" /></td>
+                    </tr>
+                    <tr>
+                        <td class="mc" colspan="2"><input type="submit" id="submit" name="submit" value="Login" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div id="login-foot">&nbsp;</div>
+</div>

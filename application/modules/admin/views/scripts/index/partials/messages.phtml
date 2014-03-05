@@ -1,0 +1,33 @@
+<?php if ($this->successes) { ?>
+    <div class="success">
+        <ul>
+            <?php foreach($this->successes as $success) { ?>
+                <li><?= $success; ?></li>
+            <?php } ?>
+        </ul>
+    </div>
+<?php } elseif ($this->errors) { ?>
+    <div class="error">
+        <ul>
+            <?php foreach($this->errors as $error) { ?>
+                <li><?= $error; ?></li>
+            <?php } ?>
+        </ul>
+    </div>
+<?php } elseif ($this->warnings) { ?>
+    <div class="error">
+        <ul>
+            <?php foreach($this->warnings as $warning) { ?>
+                <li><?= $warning; ?></li>
+            <?php } ?>
+        </ul>
+    </div>
+<?php } elseif ($this->infos) { ?>
+    <div class="error">
+        <ul>
+            <?php foreach($this->infos as $info) { ?>
+                <li><?= $info; ?></li>
+            <?php } ?>
+        </ul>
+    </div>
+<?php } ?>

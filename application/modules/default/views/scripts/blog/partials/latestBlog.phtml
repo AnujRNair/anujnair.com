@@ -1,0 +1,11 @@
+<div class="row-fluid row-latest-blog">
+    <div class="span12">
+        <a href="<?= $this->url(array('id' => $this->blog->blogId, 'title' => $this->urltitle($this->blog->title)),
+            'blogArticle', true) ?>">
+            <?= $this->blog->title; ?>
+            <div class="row-latest-blog-posted">
+                Posted <?= date('jS F Y', strtotime($this->blog->creationDate));?>
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div id="main-content-header">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+        </div>
+        <div class="span10">
+            <h2>Anuj Nair's Portfolio</h2>
+            <div class="subh2">
+                Below is a list of major websites that I have designed and developed over the years through freelancing 
+                work - Click the 'View more info' button to find a detailed explanation of what each project entailed 
+                and how I went about completing each task for the specific client.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-body">
+    <div class="row-fluid">
+        <div class="span8">
+            <section>
+                <article class="main-content-body-left">
+                    <h3><?= $this->site->siteName; ?></h3>
+                    <div class="row-fluid row-portfolio">
+                        <div class="span12 row-portfolio-image">
+                            <img src="/img/portfolio/<?= $this->site->image; ?>" alt="AnujNair.com Portfolio Image"/>
+                        </div>
+                    </div>
+                    <div class="row-fluid row-portfolio">
+                        <div class="span12 row-portfolio-text">
+                            <?= $this->site->contents; ?>
+                        </div>
+                    </div>
+                    <? if (count($this->site->tags) > 0) { ?>
+                        <div class="row-fluid row-portfolio-tags">
+                            <div class="span12">
+                                <? foreach ($this->site->tags as $tag) { ?>
+                                    <a href="<?=
+                                    $this->url(array(
+                                            'id' => $tag->tagId,
+                                            'name' => $this->urltitle($tag->tagName)),
+                                        'blogTags',
+                                        true
+                                    ); ?>">
+                                        <?= $tag->tagName; ?>
+                                    </a>
+                                <? } ?>
+                            </div>
+                        </div>
+                    <? } ?>
+                </article>
+            </section>
+        </div>
+        <div class="span4">
+            <section class="main-content-body-right">
+                <h3>Latest Blog Posts</h3>
+                <?= $this->partLoop('default', 'blog', 'latestBlog', 'blog', $this->latestBlogs); ?>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-footer">
+
+</div>

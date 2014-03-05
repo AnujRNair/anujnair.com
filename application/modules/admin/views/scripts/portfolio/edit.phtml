@@ -1,0 +1,116 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'portfolioedit')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Portfolio Management - Edit Portfolio ID ' . $this->site->siteId)); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+
+    <div id="mainContent">
+
+        <form method="post" action="<?= $this->route('admin', 'portfolio', 'edit', array('id' => $this->site->siteId)); ?>">
+            <table class="dataTableEdit" id="editSite">
+                <tr>
+                    <td>Site ID : </td>
+                    <td id="siteId"><?= $this->site->siteId; ?></td>
+                </tr>
+                <tr>
+                    <td>Site Name : </td>
+                    <td><input type="text" name="siteName" id="siteName" value="<?= $this->site->siteName; ?>" /></td>
+                </tr>
+                <tr>
+                    <td>Abstract : </td>
+                    <td><textarea name="abstract" id="abstract"><?= $this->site->abstract; ?></textarea></td>
+                </tr>
+                <tr>
+                    <td>Main Contents : </td>
+                    <td><textarea name="contents" id="contents"><?= $this->site->contents; ?></textarea></td>
+                </tr>
+                <tr>
+                    <td>Image : </td>
+                    <td><input type="text" name="image" id="image" value="<?= $this->site->image; ?>" /></td>
+                </tr>
+                <tr>
+                    <td>Website Link : </td>
+                    <td><input type="text" name="link" id="link" value="<?= $this->site->link; ?>" /></td>
+                </tr>
+                <tr>
+                    <td>Creation Date : </td>
+                    <td><input type="text" name="creationDate" id="creationDate" value="<?= $this->site->creationDate; ?>" /></td>
+                </tr>
+                <tr>
+                    <td>Updated Date : </td>
+                    <td><?= $this->site->updatedDate; ?></td>
+                </tr>
+                <tr>
+                    <td>Featured : </td>
+                    <td><input type="checkbox" name="featured" id="featured" <?= ($this->site->featured == 1 ? 'checked="checked"' : ''); ?> /></td>
+                </tr>
+                <tr>
+                    <td>Deleted : </td>
+                    <td><input type="checkbox" name="deleted" id="deleted" <?= ($this->site->deleted == 1 ? 'checked="checked"' : ''); ?> /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Update Site" /></td>
+                </tr>
+            </table>
+        </form>
+
+        <table class="dataTableEdit" id="siteTags">
+            <tr>
+                <td>Assigned Tags:</td>
+                <td id="assignedTags">
+                    <?php foreach($this->site->tags as $t) { ?>
+                        <div id="tag<?= $t->tagId; ?>" class="existingTag assignedTag">
+                            <?= $t->tagName; ?>
+                            <a href="#"><img src="/img/icons/bullet_delete.png" /></a>
+                        </div>
+                    <?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Available Tags:</td>
+                <td id="availableTags">
+                    <?php foreach($this->unusedTags as $u) { ?>
+                        <div id="tag<?= $u->tagId; ?>" class="existingTag availableTag">
+                            <?= $u->tagName; ?>
+                            <a href="#"><img src="/img/icons/bullet_add.png" /></a>
+                        </div>
+                    <?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Add New Tag:</td>
+                <td>
+                    <form method="post" action="<?= $this->route('admin', 'portfolio', 'addtag', array('id' => $this->site->siteId)); ?>">
+                        <input type="text" name="newTagText" id="newTagText" value="" />
+                        <input type="submit" value="Create Tag" />
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Delete Tag:</td>
+                <td>
+                    <form method="post" action="<?= $this->route('admin', 'portfolio', 'removetag', array('id' => $this->site->siteId)); ?>">
+                        <select name="removeTagId" id="removeTagId">
+                            <option value="0">-- Please Select --</option>
+                            <?php foreach($this->allTags as $t) { ?>
+                                <option value="<?= $t->tagId; ?>"><?= $t->tagName; ?></option>
+                            <?php } ?>
+                        </select>
+                        <input type="submit" value="Remove Tag" />
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="center" id="tagError"></td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>

@@ -1,0 +1,226 @@
+@charset "utf-8";
+
+/* ---------- Main Content Body ---------- */
+
+.pic {
+    background: #FFF;
+    height: 20px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.main-content-body-left {
+    background: url("/img/patterns/swirl.png") no-repeat scroll right top #ffffff;
+    border-radius: 7px;
+    padding: 0 10px 10px;
+}
+
+.main-content-body-right {
+    background: url("/img/patterns/swirl2.png") no-repeat scroll right top #ffffff;
+    border-radius: 7px;
+    padding: 0 10px 10px;
+}
+
+/* Main Blog */
+
+.blog-subheader {
+    font-weight: bold;
+}
+
+.blog-date {
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+
+.blog-contents {
+    text-align: justify;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.blog-read-more {
+    margin: 3px 0 0 0;
+}
+
+.blog-tags {
+    background: url("/img/icons/tag.png") no-repeat scroll 0 4px transparent;
+    border-top: 1px solid #cccccc;
+    padding: 5px 0 0 30px;
+}
+
+.blog-tags a {
+    text-decoration: none;
+    color: #999999;
+    margin-right: 8px;
+    font-size: 11px;
+}
+
+.blog-tags a:hover {
+    color: #36226d;
+}
+
+/* Blog Comments */
+
+.main-content-body-left.comment-admin {
+    background: #e6e8fa;
+}
+
+.comment-container {
+    margin-top: 10px;
+    position: relative;
+}
+
+.comment-admin.comment-container:after,
+.comment-user.comment-container:after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    border-style: solid;
+    display: block;
+    width: 0;
+    z-index: 1;
+}
+
+.comment-admin.comment-container:after {
+    border-color: transparent #e6e8fa;
+    left: -20px;
+    border-width: 15px 20px 15px 0;
+}
+
+.comment-user.comment-container:after {
+    border-color: transparent #ffe2d3;
+    right: -20px;
+    border-width: 15px 0 15px 20px;
+}
+
+.comment-container h5 {
+    border-bottom: 1px solid #241648;
+    color: #241648;
+    font-family: Delicious-Bold;
+    font-size: 16px;
+    overflow: hidden;
+    padding-top: 10px;
+    text-decoration: none;
+}
+
+.comment-container .comment-date {
+    text-align: right;
+    font-size: 11px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+
+.comment-container .comment-text {
+    font-size: 12px;
+    text-align: justify;
+}
+
+.comment-container input[type="submit"].button {
+    width: 120px;
+}
+
+.comment-container.comment-closed {
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 8px;
+    text-align: center;
+}
+
+/* Blog Right General */
+
+.main-content-body-right ul {
+    list-style: none;
+}
+
+.main-content-body-right a {
+    color: #241648;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.main-content-body-right a:hover {
+    color: #36226d;
+    text-decoration: none;
+}
+
+.main-content-body-right > ul {
+    margin: 0;
+}
+
+.main-content-body-right > ul > li {
+    font-weight: bold;
+    padding-bottom: 3px;
+}
+
+.main-content-body-right > ul > ul {
+    margin-bottom: 10px;
+}
+
+/* Blog Archive & Tag Specific */
+
+#blog-archive li {
+    padding-left: 20px;
+}
+
+#blog-archive > li {
+    padding-left: 30px;
+    background: url("/img/icons/calendar_view_day.png") no-repeat scroll 2px 2px transparent;
+}
+
+#blog-archive a:hover {
+    color: #36226D;
+    padding-left: 2px;
+}
+
+#blog-tag li {
+    padding-left: 30px;
+    background: url("/img/icons/tag.png") no-repeat scroll 0 -1px transparent;
+}
+
+#blog-tag li.selected a {
+    font-weight: bold;
+    color: #cd6600;
+}
+
+#blog-tag a:hover {
+    color: #36226D;
+    padding-left: 2px;
+}
+
+.blog-tag-count {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/*
+    Tablet portrait and smaller
+*/
+@media (max-width: 767px) {
+    .comment-container h5 {
+        text-align: center;
+    }
+
+    .comment-container .comment-date {
+        text-align: center;
+    }
+
+    .comment-admin.comment-container:after,
+    .comment-user.comment-container:after {
+        display: none;
+    }
+}
+
+/*
+    Landscape phones and down
+*/
+@media (max-width: 360px) {
+    .blog-read-more {
+        float: none;
+        margin: 3px 0 10px;
+    }
+
+    .blog-read-more a {
+        margin: 0 auto;
+    }
+}

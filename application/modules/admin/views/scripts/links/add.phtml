@@ -1,0 +1,42 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'linksadd')); ?>
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Link Management - Add New Link')); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+
+    <div id="mainContent">
+        <form method="post" action="<?= $this->route('admin', 'links', 'add', array()); ?>">
+            <table class="dataTableEdit">
+                <tr>
+                    <td>Title : </td>
+                    <td><input type="text" name="linkTitle" id="linkTitle" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Link : </td>
+                    <td><input type="text" name="linkLink" id="linkLink" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Description : </td>
+                    <td><textarea name="description" id="description"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Featured : </td>
+                    <td><input type="checkbox" name="featured" id="featured" /></td>
+                </tr>
+                <tr>
+                    <td>Deleted : </td>
+                    <td><input type="checkbox" name="deleted" id="deleted" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Update Link" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</div>

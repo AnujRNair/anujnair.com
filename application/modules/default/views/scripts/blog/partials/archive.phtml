@@ -1,0 +1,20 @@
+<? if (count($this->archive) > 0) { ?>
+    <section class="main-content-body-right">
+        <h3>Blog Archive</h3>
+        <ul id="blog-archive">
+            <? foreach ($this->archive as $key => $archive) { ?>
+                <li><a href="#<?= str_replace(' ', '', $key); ?>"><?= $key; ?></a></li>
+                <ul>
+                    <? foreach ($archive as $article) { ?>
+                        <li>
+                            <a href="<?= $this->url(array('id' => $article->blogId,
+                                'title' => $this->urltitle($article->title)), 'blogArticle',
+                                true); ?>
+                            "><?= $article->title; ?></a>
+                        </li>
+                    <? } ?>
+                </ul>
+            <? } ?>
+        </ul>
+    </section>
+<? } ?>

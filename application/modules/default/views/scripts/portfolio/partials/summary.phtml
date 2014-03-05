@@ -1,0 +1,55 @@
+<article class="main-content-body-left">
+    <h3>
+        <a href="<?= $this->url(array(
+            'id' => $this->site->siteId,
+            'name' => $this->urltitle($this->site->siteName)),
+            'site',
+            true
+        ); ?>">
+            <?= $this->site->siteName; ?>
+        </a>
+    </h3>
+    <div class="row-fluid row-portfolio">
+        <div class="span6 row-portfolio-image">
+            <a href="<?=
+            $this->url(array(
+                'id'   => $this->site->siteId,
+                'name' => $this->urltitle($this->site->siteName)),
+                'site',
+                true
+            ); ?>">
+                <img src="/img/portfolio/<?= $this->site->image; ?>" alt="AnujNair.com Portfolio Image"/>
+            </a>
+        </div>
+        <div class="span6 row-portfolio-text">
+            <?= $this->site->abstract; ?>
+            <a class="button pull-right morebutton" href="<?=
+            $this->url(array(
+                'id'   => $this->site->siteId,
+                'name' => $this->urltitle($this->site->siteName)),
+                'site',
+                true
+            ); ?>">
+                <span class="icon-white icon-arrow-right"></span>
+                More Info
+            </a>
+        </div>
+    </div>
+    <? if (count($this->site->tags) > 0) { ?>
+        <div class="row-fluid row-portfolio-tags">
+            <div class="span12">
+                <? foreach ($this->site->tags as $tag) { ?>
+                    <a href="<?=
+                    $this->url(array(
+                        'id' => $tag->tagId,
+                        'name' => $this->urltitle($tag->tagName)),
+                        'blogTags',
+                        true
+                    ); ?>">
+                        <?= $tag->tagName; ?>
+                    </a>
+                <? } ?>
+            </div>
+        </div>
+    <? } ?>
+</article>

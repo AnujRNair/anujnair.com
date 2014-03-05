@@ -1,0 +1,43 @@
+<div id="main-content-header">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+        </div>
+        <div class="span10">
+            <h2>External Links and Resources</h2>
+            <div class="subh2">
+                If I find an interesting link or resource which I think others might enjoy reading about, 
+                I'll list it here. If you think you can contribute to building this list, get in contact 
+                with me - It can be about anything web design or development related
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-body">
+    <div class="row-fluid">
+        <div class="span8">
+            <section class="main-content-body-left">
+                <h3>Links and Resources</h3>
+                <?= $this->partLoop('default', 'links', 'singleLink', 'link', $this->links); ?>
+            </section>
+        </div>
+        <div class="span4">
+            <section class="main-content-body-right">
+                <h3>Featured Links</h3>
+                <? foreach ($this->featured as $featured) { ?>
+                    <h4 class="featured-link">
+                        <a href="<?= $featured->link; ?>"><?= $featured->title; ?></a>
+                    </h4>
+                <? } ?>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-footer">
+
+</div>

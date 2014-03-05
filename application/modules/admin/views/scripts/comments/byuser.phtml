@@ -1,0 +1,51 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'users')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Comment Management - User ID ' . $this->userId)); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+    <div id="mainContent">
+        <table class="dataTableDisplay">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Comment</td>
+                    <td>Last Updated</td>
+                    <td>Active</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (count($this->comments) > 0) {
+                    for ($i = 0; $i < count($this->comments); $i++) { ?>
+                        <tr>
+                            <td><?= $this->comments[$i]->commentId; ?></td>
+                            <td><?= substr($this->comments[$i]->comment, 0, 230) . (strlen($this->comments[$i]->comment) > 230 ? '...' : ''); ?></td>
+                            <td><?= $this->comments[$i]->updatedDate; ?></td>
+                            <td><img src="/img/icons/<?= ($this->comments[$i]->deleted == 1 ? 'cross' : 'tick-straight'); ?>.png" /></td>
+                            <td>
+                                <a title="Edit Comment" href="<?= $this->route('admin', 'comments', 'edit', array('commentId' => $this->comments[$i]->commentId, 'from' => 'byuser-id-' . $this->userId)); ?>">
+                                    <img src="/img/icons/comment_edit.png" />
+                                </a>
+                            </td>
+                            <td>
+                                <a title="<?= ($this->comments[$i]->deleted == 1 ? "Add" : "Delete"); ?> Comment" href="<?= $this->route('admin', 'comments', 'changestate', array('commentId' => $this->comments[$i]->commentId, 'userId' => $this->userId, 'method' => ($this->comments[$i]->deleted == 1 ? "add" : "delete"))); ?>">
+                                    <img src="/img/icons/comment_<?= ($this->comments[$i]->deleted == 1 ? "add" : "delete"); ?>.png" />
+                                </a>
+                            </td>
+                        </tr>
+                    <?php }
+                } else { ?>
+                    <tr>
+                        <td colspan="6">No comments currently exist.</td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</div>

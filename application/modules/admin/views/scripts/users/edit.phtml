@@ -1,0 +1,69 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'users')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'User Management - Edit User ID ' . $this->user->userId)); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+    <div id="mainContent">
+        <form method="post" action="<?= $this->route('admin', 'users', 'edit', array('id' => $this->user->userId)); ?>">
+            <table class="dataTableEdit">
+                <tr>
+                    <td>User ID : </td>
+                    <td><?= $this->user->userId; ?></td>
+                </tr>
+                <tr>
+                    <td><label for="username">Username : </label></td>
+                    <td><input type="text" name="username" id="username" value="<?= $this->user->username; ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="firstName">First Name : </label></td>
+                    <td><input type="text" name="firstName" id="firstName" value="<?= $this->user->firstname; ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="lastName">Last Name : </label></td>
+                    <td><input type="text" name="lastName" id="lastName" value="<?= $this->user->lastname; ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email : </label></td>
+                    <td><input type="text" name="email" id="email" value="<?= $this->user->email; ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="website">Website : </label></td>
+                    <td><input type="text" name="website" id="website" value="<?= $this->user->website; ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="regIp">Registration IP : </label></td>
+                    <td><input type="text" name="regIp" id="regIp" value="<?= long2ip($this->user->regIp); ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="regDate">Registration Date : </label></td>
+                    <td><input type="text" name="regDate" id="regDate" value="<?= $this->user->regDate; ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="lastLoginIp">Last Login IP : </label></td>
+                    <td><input type="text" name="lastLoginIp" id="lastLoginIp" value="<?= long2ip($this->user->lastLoginIp); ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="lastLoginDate">Last Login Date : </label></td>
+                    <td><input type="text" name="lastLoginDate" id="lastLoginDate" value="<?= $this->user->lastLoginDate; ?>" /></td>
+                </tr>
+                <tr>
+                    <td><label for="active">Active : </label></td>
+                    <td><input type="checkbox" name="active" id="active" <?= ($this->user->active == 1 ? 'checked="checked"' : ''); ?> /></td>
+                </tr>
+                <tr>
+                    <td><label for="validated">Validated : </label></td>
+                    <td><input type="checkbox" name="validated" id="validated" <?= ($this->user->validated == 1 ? 'checked="checked"' : ''); ?> /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Update User" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

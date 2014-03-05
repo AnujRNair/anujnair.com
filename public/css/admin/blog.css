@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+/* ---------- Blogs Main Table ---------- */
+
+#mainContent #editBlog {
+    float: left;
+    width: 49%;
+}
+
+#mainContent form {
+    margin: 0;
+}
+
+/* ---------- Users Tags Table ---------- */
+
+#mainContent #blogTags {
+    float: right;
+    width: 49%;
+    margin-left: 10px;
+}
+
+#blogTags .existingTag {
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    margin: 3px;
+    cursor: pointer;
+    padding: 4px 5px;
+    float: left;
+    line-height: 20px;
+}
+
+#blogTags .existingTag a img {
+    vertical-align: top;
+}
+
+#blogTags #newTagText {
+    padding: 5px;
+    width: 180px;
+}
+
+#blogTags #removeTagId {
+    padding: 5px;
+    width: 190px;
+}
+
+#tagError {
+    text-align: center;
+}

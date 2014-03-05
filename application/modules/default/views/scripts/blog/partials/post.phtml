@@ -1,0 +1,38 @@
+<article class="main-content-body-left">
+    <h3>
+        <a href="<?= $this->url(array('id' => $this->blog->blogId, 'title' => $this->urltitle($this->blog->title)),
+            'blogArticle', true); ?>">
+            <?= $this->blog->title; ?>
+        </a>
+    </h3>
+    <div class="blog-subheader">
+        <?= $this->blog->subtitle; ?>
+    </div>
+    <div class="blog-date">
+        Posted <?= date('jS F Y \a\t H:i:s', strtotime($this->blog->creationDate)); ?>
+    </div>
+    <div class="blog-contents">
+        <?= $this->safeShorten($this->parsePost($this->blog->contents),
+            (isset($this->truncate) && $this->truncate == false ? 10000 : 1000));?>
+    </div>
+    <? if (!isset($this->truncate) || $this->truncate != false) { ?>
+        <div class="blog-read-more pull-right">
+            <a class="button morebutton" href="<?= $this->url(array('id' => $this->blog->blogId,
+                'title' => $this->urltitle($this->blog->title)), 'blogArticle', true); ?>">
+                <span class="icon-white icon-arrow-right"></span>
+                Read More
+            </a>
+        </div>
+    <? } ?>
+    <? if (count($this->blog->tags) > 0) { ?>
+        <div class="blog-tags">
+            <? foreach ($this->blog->tags as $tag) { ?>
+                <a href="<?=
+                $this->url(array('id' => $tag->tagId, 'name' => $this->urltitle($tag->tagName)), 'blogTags',
+                    true); ?>">
+                    <?= $tag->tagName; ?>
+                </a>
+            <? } ?>
+        </div>
+    <? } ?>
+</article>

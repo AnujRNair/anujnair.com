@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+/* ---------- Login Box ---------- */
+
+#login {
+    width: 700px;
+    margin: 0 auto;
+    padding: 100px 0 25px 0;
+    background: #dedede;
+}
+
+#login-head,
+#login-foot {
+    text-align: center;
+    font-weight: bold;
+    padding: 3px;
+    background: #ffffff;
+}
+
+#login-cont {
+    background: url(/img/bg.png) #101318 no-repeat center top;
+    padding: 5px;
+}
+
+/* ---------- Login Top ---------- */
+
+#login-top {
+    overflow: hidden;
+    margin: 5px;
+    border-bottom: 1px solid #999999;
+}
+
+#login-top img {
+    float: left;
+}
+
+#login-top h1 {
+    font-family: Delicious-Bold;
+    font-size: 42px;
+    color: #ffffff;
+    margin: 25px 0 0 25px;
+    padding: 0;
+    float: left;
+}
+
+/* ---------- Login Bottom ---------- */
+
+#login-bottom {
+    padding: 5px 15px 15px;
+}
+
+#login-bottom table {
+    margin: 0 auto;
+}
+
+#login-bottom table .lc {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+}
+
+#login-bottom table .rc input {
+    width: 300px;
+}
+
+#login-bottom table .mc {
+    text-align: center;
+}

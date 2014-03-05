@@ -1,0 +1,59 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'random')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Random Poster Management')); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+    <div id="mainContent">
+        <table class="dataTableDisplay">
+            <thead>
+                <tr>
+                    <td>Poster ID</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Website</td>
+                    <td>IP</td>
+                    <td>User Agent</td>
+                    <td>Creation Date</td>
+                    <td>Active</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php for ($i = 0; $i < count($this->randomPosters); $i++) { ?>
+                    <tr>
+                        <td><?= $this->randomPosters[$i]->randomPosterId; ?></td>
+                        <td><?= $this->randomPosters[$i]->name; ?></td>
+                        <td><?= $this->randomPosters[$i]->email; ?></td>
+                        <td><a href="<?= $this->randomPosters[$i]->website; ?>" target="_blank"><?= $this->randomPosters[$i]->website; ?></a></td>
+                        <td><?= long2ip($this->randomPosters[$i]->ip); ?></td>
+                        <td><?= $this->randomPosters[$i]->useragent; ?></td>
+                        <td><?= $this->randomPosters[$i]->creationDate; ?></td>
+                        <td><img src="/img/icons/<?= ($this->randomPosters[$i]->deleted == 1 ? 'cross' : 'tick-straight'); ?>.png" /></td>
+                        <td>
+                            <a title="Manage Comments By User" href="<?= $this->route('admin', 'comments', 'byrandom', array('id' => $this->randomPosters[$i]->randomPosterId)); ?>">
+                                <img src="/img/icons/comments.png" />
+                            </a>
+                        </td>
+                        <td>
+                            <a title="Edit User" href="<?= $this->route('admin', 'random', 'edit', array('id' => $this->randomPosters[$i]->randomPosterId)); ?>">
+                                <img src="/img/icons/user_edit.png" />
+                            </a>
+                        </td>
+                        <td>
+                            <a title="<?= ($this->randomPosters[$i]->deleted == 1 ? "Add" : "Delete"); ?> User" href="<?= $this->route('admin', 'random', 'changestate', array('id' => $this->randomPosters[$i]->randomPosterId, 'method' => ($this->randomPosters[$i]->deleted == 1 ? "add" : "delete"))); ?>">
+                                <img src="/img/icons/user_<?= ($this->randomPosters[$i]->deleted == 1 ? "add" : "delete"); ?>.png" />
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</div>

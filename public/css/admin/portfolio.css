@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+/* ---------- Sites Main Table ---------- */
+
+#mainContent #editSite {
+    float: left;
+    width: 49%;
+}
+
+#mainContent form {
+    margin: 0;
+}
+
+/* ---------- Portfolio Tags Table ---------- */
+
+#mainContent #siteTags {
+    float: right;
+    width: 49%;
+    margin-left: 10px;
+}
+
+#siteTags .existingTag {
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    cursor: pointer;
+    float: left;
+    line-height: 20px;
+    margin: 3px;
+    padding: 4px 5px;
+}
+
+#siteTags .existingTag a img {
+    vertical-align: top;
+}
+
+#siteTags #newTagText {
+    padding: 5px;
+    width: 180px;
+}
+
+#siteTags #removeTagId {
+    padding: 5px;
+    width: 190px;
+}
+
+#tagError {
+    text-align: center;
+}

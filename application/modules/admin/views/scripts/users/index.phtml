@@ -1,0 +1,63 @@
+<?= $this->part('admin', 'index', 'navigation', array('active' => 'users')); ?>
+
+<div id="admCont">
+    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'User Management')); ?>
+    <?= $this->part('admin', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+    <div id="mainContent">
+        <table class="dataTableDisplay">
+            <thead>
+                <tr>
+                    <td>User ID</td>
+                    <td>Username</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Reg IP</td>
+                    <td>Reg Date</td>
+                    <td>Last Login IP</td>
+                    <td>Last Login Date</td>
+                    <td>Active</td>
+                    <td>Validated</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php for ($i = 0; $i < count($this->users); $i++) { ?>
+                    <tr>
+                        <td><?= $this->users[$i]->userId; ?></td>
+                        <td><?= $this->users[$i]->username; ?></td>
+                        <td><?= $this->users[$i]->firstname; ?> <?= $this->users[$i]->lastname; ?></td>
+                        <td><?= $this->users[$i]->email; ?></td>
+                        <td><?= long2ip($this->users[$i]->regIp); ?></td>
+                        <td><?= date('jS M Y h:i:s A', strtotime($this->users[$i]->regDate)); ?></td>
+                        <td><?= long2ip($this->users[$i]->lastLoginIp); ?></td>
+                        <td><?= date('jS M Y h:i:s A', strtotime($this->users[$i]->lastLoginDate)); ?></td>
+                        <td><img src="/img/icons/<?= ($this->users[$i]->active == 1 ? 'tick-straight' : 'cross'); ?>.png" /></td>
+                        <td><img src="/img/icons/<?= ($this->users[$i]->validated == 1 ? 'tick-straight' : 'cross'); ?>.png" /></td>
+                        <td>
+                            <a title="Manage Comments By User" href="<?= $this->route('admin', 'comments', 'byuser', array('id' => $this->users[$i]->userId)); ?>">
+                                <img src="/img/icons/comments.png" />
+                            </a>
+                        </td>
+                        <td>
+                            <a title="Edit User" href="<?= $this->route('admin', 'users', 'edit', array('id' => $this->users[$i]->userId)); ?>">
+                                <img src="/img/icons/user_edit.png" />
+                            </a>
+                        </td>
+                        <td>
+                            <a title="<?= ($this->users[$i]->active == 1 ? "Delete" : "Add"); ?> User" href="<?= $this->route('admin', 'users', 'changestate', array('id' => $this->users[$i]->userId, 'method' => ($this->users[$i]->active == 1 ? "delete" : "add"))); ?>">
+                                <img src="/img/icons/user_<?= ($this->users[$i]->active == 1 ? "delete" : "add"); ?>.png" />
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</div>

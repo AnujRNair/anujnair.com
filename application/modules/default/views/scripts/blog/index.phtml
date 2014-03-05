@@ -1,0 +1,45 @@
+<div id="main-content-header">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+            <div class="pic"></div>
+        </div>
+        <div class="span10">
+            <h2>Welcome to Anuj Nair's Blog</h2>
+            <div class="subh2">
+                My blog is a place for me to share my findings, leave my thoughts, and interact wth you.
+                Anything which I think others could benefit from knowing will be posted here and will be
+                open for discussion - If you need to know more about a topic I'm talking about, or if you
+                know of a better way of doing something, join the discussion!
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-body">
+
+    <?= $this->part('default', 'index', 'messages', array(
+        'successes' => $this->successes,
+        'errors'     => $this->errors,
+        'warnings'     => $this->warnings,
+        'infos'     => $this->infos
+    )); ?>
+
+    <div class="row-fluid">
+        <div class="span8">
+            <section>
+                <?= $this->partLoop('default', 'blog', 'post', 'blog', $this->blogs); ?>
+            </section>
+        </div>
+        <div class="span4">
+            <?= $this->part('default', 'blog', 'archive', array('archive' => $this->archive)); ?>
+            <?= $this->part('default', 'blog', 'tags', array('tags' => $this->tags, 'selectedTagId' => $this->selectedTagId)); ?>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-footer">
+
+</div>

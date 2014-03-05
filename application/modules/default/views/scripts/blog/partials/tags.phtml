@@ -1,0 +1,16 @@
+<? if (count($this->tags) > 0) { ?>
+    <section class="main-content-body-right">
+        <h3>Blog Tags</h3>
+        <ul id="blog-tag">
+            <? foreach ($this->tags as $tag) { ?>
+                <li <? if ($tag->tagId == $this->selectedTagId) { ?>class="selected"<? } ?>>
+                    <a href="<?= $this->url(array('id' => $tag->tagId, 'name' => $this->urltitle($tag->tagName)),
+                        'blogTags', true); ?>">
+                        <?= $tag->tagName; ?>
+                        <span class="blog-tag-count">(<?= $tag->tagCount; ?>)</span>
+                    </a>
+                </li>
+            <? } ?>
+        </ul>
+    </section>
+<? } ?>
