@@ -30,6 +30,20 @@
                     <td><textarea name="contents" id="contents"><?= $this->blog->contents; ?></textarea></td>
                 </tr>
                 <tr>
+                    <td>BBCode : </td>
+                    <td id="bbcode-container">
+                        <span class="bbcode-title">Bold</span>[b][/b]<br />
+                        <span class="bbcode-title">Italics</span>[i][/i]<br />
+                        <span class="bbcode-title">Sub Header</span>[subheader][/subheader]<br />
+                        <span class="bbcode-title">Link</span>[url="link"]name[/url]<br />
+                        <span class="bbcode-title">Image</span>[img]link[/img]<br />
+                        <span class="bbcode-title">List</span>[list][/list]<br />
+                        <span class="bbcode-title">Bullet</span>[*]<br />
+                        <span class="bbcode-title">Inline Code</span>[code mode="inline" lang="lang"]code[/code]<br />
+                        <span class="bbcode-title">Full Code</span>[code mode="full" lang="lang"]code[/code]<br />
+                    </td>
+                </tr>
+                <tr>
                     <td>Creation Date : </td>
                     <td><input type="text" name="creationDate" id="creationDate" value="<?= $this->blog->creationDate; ?>" /></td>
                 </tr>

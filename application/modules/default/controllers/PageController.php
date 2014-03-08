@@ -13,15 +13,15 @@ class PageController extends Zend_Controller_Action {
         $this->_session = Zend_Registry::get('session');
         $this->_useragent = Zend_Registry::get('useragent');
 
-        // Add specific JS and CSS to page
+        // Add specific JS and CSS to page. Offset 2, 3, 4 left for other jQuery dependant plugins
         $this->view->headScript()
-            ->appendFile('/js/libs/jquery.js', 'text/javascript')
-            ->appendFile('/js/libs/bootstrap.min.js', 'text/javascript')
-            ->appendFile('/js/' . $module . '/site.js', 'text/javascript')
-            ->appendFile('/js/' . $module . '/' . $controller . '.js', 'text/javascript');
+            ->offsetSetFile(0, '/js/libs/jquery.js', 'text/javascript')
+            ->offsetSetFile(1, '/js/libs/bootstrap.min.js', 'text/javascript')
+            ->offsetSetFile(5, '/js/' . $module . '/site.js', 'text/javascript')
+            ->offsetSetFile(6, '/js/' . $module . '/' . $controller . '.js', 'text/javascript');
 
         $this->view->headLink()
-            ->appendStylesheet('/css/bootstrap.min.css')
+            ->appendStylesheet('/css/libs/bootstrap.min.css')
             ->appendStylesheet('/css/' . $module . '/site.css')
             ->appendStylesheet('/css/' . $module . '/' . $controller . '.css');
 

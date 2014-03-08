@@ -46,3 +46,16 @@
 #tagError {
     text-align: center;
 }
+
+/* ---------- BB Code ---------- */
+
+#bbcode-container {
+    font-size: 11px;
+    line-height: 14px;
+    padding: 3px 10px;
+}
+
+.bbcode-title {
+    display: inline-block;
+    width: 100px;
+}

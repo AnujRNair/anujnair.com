@@ -4,6 +4,7 @@ class BlogController extends PageController {
 
     public function preDispatch() {
         parent::preDispatch();
+        $this->view->headScript()->offsetSetFile(2, '/js/libs/jquery.syntax/jquery.syntax.min.js', 'text/javascript');
         $this->view->archive = Factory_Blog::getArchive(0);
         $this->view->tags = Factory_Tag::getTagSummary();
     }
