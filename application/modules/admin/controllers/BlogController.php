@@ -46,14 +46,14 @@ class Admin_BlogController extends PageController {
         if ($input->isValid()) {
             if ($input->method == 'delete') {
                 $result = Factory_Blog::setBlogDeletedStatus($input->blogId, 1);
-                if ($result) {
+                if ($result != false) {
                     $this->getHelper('FlashMessenger')->setNamespace('successes')->addMessage('Blog has been deleted');
                 } else {
                     $this->getHelper('FlashMessenger')->setNamespace('errors')->addMessage('Error deleting blog');
                 }
             } elseif ($input->method == 'add') {
                 $result = Factory_Blog::setBlogDeletedStatus($input->blogId, 0);
-                if ($result) {
+                if ($result != false) {
                     $this->getHelper('FlashMessenger')->setNamespace('successes')->addMessage('Blog has been added');
                 } else {
                     $this->getHelper('FlashMessenger')->setNamespace('errors')->addMessage('Error adding blog');
@@ -138,7 +138,7 @@ class Admin_BlogController extends PageController {
                 );
                 if ($result != false) {
                     $this->getHelper('FlashMessenger')->setNamespace('successes')->addMessage('Blog entry has been added');
-                    $this->getHelper('Redirector')->setExit(true)->gotoSimple("index", "blog", 'admin', array());
+                    $this->getHelper('Redirector')->setExit(true)->gotoSimple("edit", "blog", 'admin', array('id' => $result));
                 } else {
                     $this->getHelper('FlashMessenger')->setNamespace('errors')->addMessage('Error adding blog entry');
                     $this->getHelper('Redirector')->setExit(true)->gotoSimple("add", "blog", 'admin', array());
@@ -244,14 +244,13 @@ class Admin_BlogController extends PageController {
                     $input->disableComments,
                     $input->deleted
                 );
-                if ($result) {
+                if ($result != false) {
                     $this->getHelper('FlashMessenger')->setNamespace('successes')->addMessage('Blog has been updated');
                 } else {
                     $this->getHelper('FlashMessenger')->setNamespace('errors')->addMessage('Error updating blog');
                 }
                 $this->getHelper('Redirector')->setExit(true)->gotoSimple("edit", "blog", 'admin', array('id' => $input->blogId));
             } else {
-                $errors = array();
                 foreach($input->getMessages() as $message) {
                     foreach($message as $error) {
                         $this->getHelper('FlashMessenger')->setNamespace('errors')->addMessage($error);

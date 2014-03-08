@@ -3,10 +3,10 @@
         <h3>Blog Archive</h3>
         <ul id="blog-archive">
             <? foreach ($this->archive as $key => $archive) { ?>
-                <li><a href="#<?= str_replace(' ', '', $key); ?>"><?= $key; ?></a></li>
+                <li class="blog-archive-month"><a href="#<?= str_replace(' ', '', $key); ?>"><?= $key; ?></a></li>
                 <ul>
                     <? foreach ($archive as $article) { ?>
-                        <li>
+                        <li class="blog-archive-item">
                             <a href="<?= $this->url(array('id' => $article->blogId,
                                 'title' => $this->urltitle($article->title)), 'blogArticle',
                                 true); ?>

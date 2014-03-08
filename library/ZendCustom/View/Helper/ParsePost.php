@@ -12,7 +12,7 @@ class ZendCustom_View_Helper_ParsePost extends Zend_View_Helper_Abstract {
         $bbFind = array(
             '/\[b\](.*?)\[\/b\]/ims',
             '/\[i\](.*?)\[\/i\]/ims',
-            '/\[subheader\](.*?)\[\/subheader\]/ims',
+            '/(?:\r\n)?\[subheader\](.*?)\[\/subheader\](?:[\r\n]+)?/ims',
             '/\[url\=([\"\'])(.*?)\1\](.*?)\[\/url\]/ims',
             '/\[img\](.*?)\[\/img\]/ims',
             '/\[list\](.*?)\[\/list\]/ims',

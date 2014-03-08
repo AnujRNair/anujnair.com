@@ -34,8 +34,8 @@
                         </div>
                     </div>
                     <? if (count($this->site->tags) > 0) { ?>
-                        <div class="row-fluid row-portfolio-tags">
-                            <div class="span12">
+                        <div class="row-fluid row-portfolio-border">
+                            <div class="span12 row-portfolio-tags">
                                 <? foreach ($this->site->tags as $tag) { ?>
                                     <a href="<?=
                                     $this->url(array(
@@ -60,8 +60,4 @@
             </section>
         </div>
     </div>
-</div>
-
-<div id="main-content-footer">
-
 </div>

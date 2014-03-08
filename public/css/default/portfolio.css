@@ -13,38 +13,41 @@
     background: url("/img/patterns/swirl.png") no-repeat scroll right top #FFFFFF;
     border-radius: 7px;
     padding: 0 10px 10px;
+    margin-bottom: 15px;
 }
 
 .main-content-body-right {
     background: url("/img/patterns/swirl2.png") no-repeat scroll right top #FFFFFF;
     border-radius: 7px;
     padding: 0 10px 10px;
+    margin-bottom: 15px;
 }
 
 /* Portfolio */
 
-.row-portfolio {
-    padding-bottom: 10px;
+.row-portfolio-border {
+    border-top: 1px solid #CCCCCC;
+    margin-top: 5px;
+    padding-top: 5px;
 }
 
 .row-portfolio-image {
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .row-portfolio-text {
     text-align: justify;
 }
 
-.row-portfolio-tags > div {
-    background: url("/img/icons/tag.png") no-repeat scroll 0 4px transparent;
-    border-top: 1px solid #CCCCCC;
-    margin-top: 10px;
-    padding: 6px 0 0 30px;
+.row-portfolio-tags {
+    background: url("/img/icons/tag.png") no-repeat scroll 0 6px rgba(0, 0, 0, 0);
+    padding: 8px 0 5px 30px;
 }
 
 .row-portfolio-tags a {
     text-decoration: none;
-    color: #999;
+    color: #999999;
     margin-right: 8px;
     font-size: 11px;
 }
@@ -76,6 +79,7 @@
     display: block;
     font-weight: bold;
     text-decoration: none;
+    padding-right: 2px;
 }
 
 .row-latest-blog a:hover {

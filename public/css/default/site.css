@@ -81,6 +81,12 @@ h2 {
     text-align: justify;
 }
 
+h3 {
+    line-height: 30px;
+    margin-top: 0;
+    padding: 5px 0;
+}
+
 h1,
 h3 {
     font-family: Delicious-Bold;
@@ -201,19 +207,11 @@ nav .active a.button {
 
 #main-content-body {
     background: rgb(65, 77, 98);
-    background: rgba(65, 77, 98, 0.3);
+    background: url(/img/gradients/shine-bottom.png) repeat-x 0 100% rgba(65, 77, 98, 0.3);
     overflow: hidden;
     padding: 5px 15px 15px;
-}
-
-#main-content-footer {
-    background: url(/img/gradients/shine-bottom.png) repeat-x 0 100% rgb(65, 77, 98);
-    background: url(/img/gradients/shine-bottom.png) repeat-x 0 100% rgba(65, 77, 98, 0.3);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    overflow: hidden;
-    min-height: 50px;
-    padding: 0 15px 10px;
 }
 
 /* ---------- Footer ---------- */
@@ -222,9 +220,10 @@ footer {
     color: #ffffff;
     font-size: 10px;
     font-weight: bold;
-    height: 40px;
+    height: 30px;
     margin-top: -40px;
     overflow: hidden;
+    padding-top: 10px;
 }
 
 footer a {

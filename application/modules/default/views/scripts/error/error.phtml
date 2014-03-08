@@ -1,28 +1,58 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Zend Framework Default Application</title>
-</head>
-<body>
-  <h1>An error occurred</h1>
-  <h2><?php echo $this->message ?></h2>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+        <meta name="robots" content="noindex, nofollow" >
+        <meta name="author" content="Anuj Nair" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <link href="/favicon.ico" rel="shortcut icon" type="image/ico" >
+        <link href="/favicon.ico" rel="icon" type="image/ico" >
+        <link href="/css/libs/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" >
+        <link href="/css/default/site.css" media="screen" rel="stylesheet" type="text/css" >
+        <link href="/css/default/blog.css" media="screen" rel="stylesheet" type="text/css" >
+        <title>Anuj Nair's Blog :: Blog :: AnujNair.com</title>
+        <style type="text/css">
+            h3 {
+                font-size: 18px;
+                color: #CCC;
+                border-bottom: none;
+                padding-top: 10px;
+            }
+            h3 a {
+                color: #CCC;
+                line-height: 22px;
+            }
+        </style>
+    </head>
 
-  <?php if (isset($this->exception)): ?>
+    <body>
+        <div id="container">
+            <div class="inner" id="main-content">
+                <h2>Oops! &#9785;</h2>
+                <h2>Looks like there was a problem trying to find your page</h2>
+                <h3>
+                    <ul>
+                        <li><a href="/">Visit the Home Page</a></li>
+                        <li><a href="/portfolio">Visit my Portfolio</a></li>
+                        <li><a href="/blog">Visit my Blog</a></li>
+                        <li><a href="/contact">Contact Me</a></li>
+                    </ul>
+                </h3>
+            </div>
+            <? if (APPLICATION_ENV == 'development') { ?>
+                <h2><?php echo $this->message ?></h2>
 
-  <h3>Exception information:</h3>
-  <p>
-      <b>Message:</b> <?php echo $this->exception->getMessage() ?>
-  </p>
+                <? if (isset($this->exception)) { ?>
+                    <h3>Exception information:</h3>
+                    <p><b>Message:</b> <?php echo $this->exception->getMessage() ?></p>
 
-  <h3>Stack trace:</h3>
-  <pre><?php echo $this->exception->getTraceAsString() ?>
-  </pre>
+                    <h3>Stack trace:</h3>
+                    <pre><?= $this->exception->getTraceAsString() ?></pre>
 
-  <h3>Request Parameters:</h3>
-  <pre><?php echo var_export($this->request->getParams(), true) ?>
-  </pre>
-  <?php endif ?>
-
-</body>
+                    <h3>Request Parameters:</h3>
+                    <pre><?= var_export($this->request->getParams(), true) ?></pre>
+                <? } ?>
+            <? } ?>
+        </div>
+    </body>
 </html>

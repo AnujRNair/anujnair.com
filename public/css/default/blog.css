@@ -10,15 +10,18 @@
 }
 
 .main-content-body-left {
-    background: url("/img/patterns/swirl.png") no-repeat scroll right top #ffffff;
+    background: url("/img/patterns/swirl.png") no-repeat scroll right top #FFFFFF;
     border-radius: 7px;
-    padding: 0 10px 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    padding: 0 10px 3px;
 }
 
 .main-content-body-right {
     background: url("/img/patterns/swirl2.png") no-repeat scroll right top #ffffff;
     border-radius: 7px;
     padding: 0 10px 10px;
+    margin-bottom: 15px;
 }
 
 /* Main Blog */
@@ -35,7 +38,12 @@
 .blog-contents {
     text-align: justify;
     overflow: hidden;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.blog-contents h4 {
+    padding-top: 10px;
 }
 
 .blog-read-more {
@@ -43,9 +51,8 @@
 }
 
 .blog-tags {
-    background: url("/img/icons/tag.png") no-repeat scroll 0 4px transparent;
-    border-top: 1px solid #cccccc;
-    padding: 5px 0 0 30px;
+    background: url("/img/icons/tag.png") no-repeat scroll 0 6px rgba(0, 0, 0, 0);
+    padding: 8px 0 5px 30px;
 }
 
 .blog-tags a {
@@ -63,11 +70,6 @@
 
 .main-content-body-left.comment-admin {
     background: #e6e8fa;
-}
-
-.comment-container {
-    margin-top: 10px;
-    position: relative;
 }
 
 .comment-admin.comment-container:after,
@@ -99,7 +101,6 @@
     font-family: Delicious-Bold;
     font-size: 16px;
     overflow: hidden;
-    padding-top: 10px;
     text-decoration: none;
 }
 
@@ -162,9 +163,23 @@
     padding-left: 20px;
 }
 
-#blog-archive > li {
-    padding-left: 30px;
-    background: url("/img/icons/calendar_view_day.png") no-repeat scroll 2px 2px transparent;
+#blog-archive .blog-archive-month {
+    background: url("/img/icons/calendar_view_day.png") no-repeat scroll 2px 10px rgba(0, 0, 0, 0);
+    border-top: 1px solid #CCCCCC;
+    padding: 8px 0 0 30px;
+}
+
+#blog-archive .blog-archive-month:first-child {
+    border-top: none;
+    padding-top: 0;
+    background-position: 2px 2px;
+}
+
+#blog-archive .blog-archive-item {
+    font-size: 13px;
+    line-height: 16px;
+    padding-right: 2px;
+    padding-top: 5px;
 }
 
 #blog-archive a:hover {

@@ -121,7 +121,7 @@ class Factory_Blog extends Factory_Model {
                 'tagsummary'
             ), static::getMemcached()->getAllKeys('/tagmap_blogsbytag_id_/'));
             parent::deleteFromCache($cacheKeys);
-            return true;
+            return $result;
         }
         return false;
     }
@@ -170,7 +170,7 @@ class Factory_Blog extends Factory_Model {
                 'archive'
             );
             parent::deleteFromCache($cacheKeys);
-            return true;
+            return $result;
         }
         return false;
     }
@@ -214,7 +214,7 @@ class Factory_Blog extends Factory_Model {
                 'archive'
             ), static::getMemcached()->getAllKeys('/tagmap_blogsbytag_id_/'));
             parent::deleteFromCache($cacheKeys);
-            return true;
+            return $result;
         }
         return false;
     }

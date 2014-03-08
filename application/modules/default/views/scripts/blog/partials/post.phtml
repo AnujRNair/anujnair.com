@@ -15,7 +15,7 @@
         <?= $this->safeShorten($this->parsePost($this->blog->contents),
             (isset($this->truncate) && $this->truncate == false ? 10000 : 1000));?>
     </div>
-    <? if (!isset($this->truncate) || $this->truncate != false) { ?>
+    <? if (!isset($this->truncate) || $this->truncate == true) { ?>
         <div class="blog-read-more pull-right">
             <a class="button morebutton" href="<?= $this->url(array('id' => $this->blog->blogId,
                 'title' => $this->urltitle($this->blog->title)), 'blogArticle', true); ?>">

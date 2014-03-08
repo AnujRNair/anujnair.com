@@ -1,7 +1,15 @@
 <?= $this->part('admin', 'index', 'navigation', array('active' => 'blogedit')); ?>
 
 <div id="admCont">
-    <?= $this->part('admin', 'index', 'header', array('userInfo' => $this->userInfo, 'title' => 'Blog Management - Edit Blog Entry ' . $this->blog->blogId)); ?>
+    <?= $this->part('admin', 'index', 'header', array(
+        'userInfo' => $this->userInfo,
+        'title' => 'Blog Management - Edit Blog Entry <a href="' . $this->url(array(
+                'id' => $this->blog->blogId,
+                'title' => $this->urltitle($this->blog->title)),
+            'blogArticle',
+            true
+        ) . '">' . $this->blog->blogId . '</a>'
+    )); ?>
     <?= $this->part('admin', 'index', 'messages', array(
         'successes' => $this->successes,
         'errors'     => $this->errors,

@@ -16,11 +16,6 @@
 
 /* ---------- Main Content Body ---------- */
 
-#main-content-body {
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
 .main-content-body-left {
     background: url("/img/patterns/swirl.png") no-repeat scroll right top #FFFFFF;
     border-radius: 7px;

@@ -86,7 +86,7 @@ class Factory_Portfolio extends Factory_Model {
                 'featuredsites'
             );
             parent::deleteFromCache($cacheKeys);
-            return true;
+            return $result;
         }
         return false;
     }
@@ -143,7 +143,7 @@ class Factory_Portfolio extends Factory_Model {
                 'featuredsites'
             );
             parent::deleteFromCache($cacheKeys);
-            return true;
+            return $result;
         }
         return false;
     }
@@ -194,7 +194,7 @@ class Factory_Portfolio extends Factory_Model {
                 'featuredsites'
             );
             parent::deleteFromCache($cacheKeys);
-            return true;
+            return $result;
         }
         return false;
     }

@@ -91,13 +91,12 @@ class Admin_PortfolioController extends PageController {
                 );
                 if ($result != false) {
                     $this->getHelper('FlashMessenger')->setNamespace('successes')->addMessage('Site has been added');
-                    $this->getHelper('Redirector')->setExit(true)->gotoSimple("index", "portfolio", 'admin', array());
+                    $this->getHelper('Redirector')->setExit(true)->gotoSimple("edit", "portfolio", 'admin', array('id' => $result));
                 } else {
                     $this->getHelper('FlashMessenger')->setNamespace('errors')->addMessage('Error updating site');
                     $this->getHelper('Redirector')->setExit(true)->gotoSimple("add", "portfolio", 'admin', array());
                 }
             } else {
-                $errors = array();
                 foreach($input->getMessages() as $message) {
                     foreach($message as $error) {
                         $this->getHelper('FlashMessenger')->setNamespace('errors')->addMessage($error);
@@ -210,14 +209,13 @@ class Admin_PortfolioController extends PageController {
                     $input->featured,
                     $input->deleted
                 );
-                if ($result) {
+                if ($result != false) {
                     $this->getHelper('FlashMessenger')->setNamespace('successes')->addMessage('Site has been updated');
                 } else {
                     $this->getHelper('FlashMessenger')->setNamespace('errors')->addMessage('Error updating site');
                 }
                 $this->getHelper('Redirector')->setExit(true)->gotoSimple("edit", "portfolio", 'admin', array('id' => $input->siteId));
             } else {
-                $errors = array();
                 foreach($input->getMessages() as $message) {
                     foreach($message as $error) {
                         $this->getHelper('FlashMessenger')->setNamespace('errors')->addMessage($error);
@@ -305,14 +303,14 @@ class Admin_PortfolioController extends PageController {
         if ($input->isValid()) {
             if ($input->method == 'delete') {
                 $result = Factory_Portfolio::setSiteDeletedStatus($input->siteId, 1);
-                if ($result) {
+                if ($result != false) {
                     $this->getHelper('FlashMessenger')->setNamespace('successes')->addMessage('Site has been deleted');
                 } else {
                     $this->getHelper('FlashMessenger')->setNamespace('errors')->addMessage('Error deleting site');
                 }
             } elseif ($input->method == 'add') {
                 $result = Factory_Portfolio::setSiteDeletedStatus($input->siteId, 0);
-                if ($result) {
+                if ($result != false) {
                     $this->getHelper('FlashMessenger')->setNamespace('successes')->addMessage('Site has been added');
                 } else {
                     $this->getHelper('FlashMessenger')->setNamespace('errors')->addMessage('Error adding site');
