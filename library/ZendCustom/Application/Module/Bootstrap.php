@@ -1,4 +1,4 @@
-<?
+<?php
 
 class ZendCustom_Application_Module_Bootstrap extends Zend_Application_Module_Bootstrap {
 
